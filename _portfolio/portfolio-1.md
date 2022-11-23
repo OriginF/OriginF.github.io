@@ -1,10 +1,10 @@
 ---
 title: "Flow Gifs"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/page.png'>"
+excerpt: "Short description of portfolio item number 1<br/><img src='/images/mu.gif'>"
 collection: portfolio
 ---
 
-![重置](portfolio-1.assets/%E9%87%8D%E7%BD%AE.gif)
+![重置](/images/mu.gif)
 
 ![雪](portfolio-1.assets/%E9%9B%AA.gif)
 
