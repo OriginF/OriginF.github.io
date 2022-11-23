@@ -18,8 +18,10 @@ Skills
   * openCV
   * Qt
 * Python:
-  * OpenCV
-  * Tensorflow
+  * openCV
+  * pytorch
+  * taichi
+  * tensorflow
 * Coq
 * Java
 * Rust
