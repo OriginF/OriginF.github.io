@@ -1,7 +1,19 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "Flow Gifs"
+excerpt: "Short description of portfolio item number 1<br/><img src='/_portfolio/portfolio-1.assets/%E9%87%8D%E7%BD%AE.gif'>"
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+![重置](portfolio-1.assets/%E9%87%8D%E7%BD%AE.gif)
+
+![雪](portfolio-1.assets/%E9%9B%AA.gif)
+
+![拖动](portfolio-1.assets/%E6%8B%96%E5%8A%A8.gif)
+
+![气体](portfolio-1.assets/%E6%B0%94%E4%BD%93.gif)
+
+![黏稠度](portfolio-1.assets/%E9%BB%8F%E7%A8%A0%E5%BA%A6.gif)
+
+![果冻](portfolio-1.assets/%E6%9E%9C%E5%86%BB.gif)
+
+![调节硬度](portfolio-1.assets/%E8%B0%83%E8%8A%82%E7%A1%AC%E5%BA%A6.gif)
