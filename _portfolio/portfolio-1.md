@@ -4,7 +4,7 @@ excerpt: "Some flow gifs<br/><img src='/images/mu.gif'>"
 collection: portfolio
 ---
 
-![gas](portfolio-1.assets/hard.gif)
+![gas](/images/mu.gif)
 
 ![jelly](portfolio-1.assets/jelly.gif)
 
