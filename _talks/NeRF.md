@@ -39,9 +39,10 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
 
 - 输入的数据x和d均是通过了位置编码（Position Encoding）传入的，可以减少高频图像的敏感度
 
-### [InstantNeRF(5s)](https://originf.github.io/files/5s_NeRF.pdf)
-
 ### [LLFF](https://originf.github.io/files/LLFF.pdf)
+
+- 沦为NeRF的数据库了属于是
+- 数据库下载链接：[Download](https://github.com/Fyusion/LLFF)
 
 ### [MVP](https://originf.github.io/files/Faster_interface.pdf)
 
@@ -59,4 +60,6 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
   $$
 
 - 纯粹的叠叠乐文章，不知道为啥能中siggraph
+
+### [InstantNeRF(5s)](https://originf.github.io/files/5s_NeRF.pdf)
 

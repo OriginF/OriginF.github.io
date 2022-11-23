@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "zh-CN"
-title                    : "Origin F / Tsinghua"
+title                    : "Origin F"
 title_separator          : "-"
 name                     : &name "Origin F"
 description              : &description "newbee in CV/CG/SLAM"
