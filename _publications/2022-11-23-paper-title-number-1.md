@@ -6,6 +6,9 @@ excerpt: 'This is my works published in Siggraph'
 date: 2022-11-23
 venue: 'Journal 1'
 paperurl: 'http://academicpages.github.io/files/paper1.pdf'
-citation: '一些工作吧'
 ---
 [Download paper here](http://academicpages.github.io/files/paper1.pdf)
+
+
+
+哎，Siggraph太难发了，我努力努力
