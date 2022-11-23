@@ -43,3 +43,20 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
 
 ### [LLFF](https://originf.github.io/files/LLFF.pdf)
 
+### [MVP](https://originf.github.io/files/Faster_interface.pdf)
+
+- 方法真的拉
+
+- 认识到当结合多个网络的时候可以添加$\lambda$用来选择损失函数的重要性
+
+- VAE中，Encoder实际上用处不大，现在常用的只有四种方法，需要的时候可以来这篇文章看。
+
+- VAE中，训练完之后，我们主要是用的是Decoder，输入为高斯噪声，输出为我们需要的图像，同时，图像隐式的存储在VAE Decoder中。
+
+- 训练VAE常常采用交叉熵的方法来计算Loss：
+  $$
+  H(p,q) = \sum_{x}{p(x) \times log(\frac{1}{q(x)})}
+  $$
+
+- 纯粹的叠叠乐文章，不知道为啥能中siggraph
+
