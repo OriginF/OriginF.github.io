@@ -1,7 +1,7 @@
 ---
 title: "SAR"
 collection: teaching
-type: "No"
+type: "Paper"
 permalink: /teaching/SAR
 venue: "Tsinghua University, Department of Computer Science"
 date: 2022-10-15
