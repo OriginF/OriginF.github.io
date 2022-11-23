@@ -1,7 +1,7 @@
 ---
 title: "Camera-calibration"
 collection: teaching
-type: "No"
+type: "C++/openCV"
 permalink: /teaching/Camera-calibration
 venue: "Tsinghua University, Department of Computer Science"
 date: 2022-9-13
