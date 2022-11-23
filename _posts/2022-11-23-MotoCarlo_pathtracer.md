@@ -28,9 +28,9 @@ tags:
 
 - 计算全局光照的模型公式如下：
 
-  ![截屏2022-11-23 21.08.18](2022-11-23-MotoCarlo_pathtracer.assets/ok1.png)
+  ![](2022-11-23-MotoCarlo_pathtracer.assets/ok1.png)
 
-  ![截屏2022-11-23 21.09.07](2022-11-23-MotoCarlo_pathtracer.assets/ok2.png)
+  ![](2022-11-23-MotoCarlo_pathtracer.assets/ok2.png)
 
 - 积分的时候可以使用蒙特卡洛积分的方法
 
