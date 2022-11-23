@@ -1,7 +1,7 @@
 ---
 title: "ROS_Compare"
 collection: teaching
-type: "No"
+type: "C++/openCV/ROS"
 permalink: /teaching/2014-spring-teaching-1
 venue: "Tsinghua University, Department of Computer Science"
 date: 2020-10-5
