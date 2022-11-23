@@ -61,5 +61,10 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
 
 - 纯粹的叠叠乐文章，不知道为啥能中siggraph
 
+### [NSVF](https://originf.github.io/files/NSVF.pdf)
+
 ### [InstantNeRF(5s)](https://originf.github.io/files/5s_NeRF.pdf)
 
+- 这篇真的nb啊
+- 所有的空间表示原语的神经网络方法，往往都是用了Encoding的方法，将低维输入映射到高维空间中去。（原文：which is key for extracting high approximation quality from compact models.）
+- 
