@@ -1,23 +1,21 @@
 ---
 title: "Flow Gifs"
-excerpt: "Some flow gifs<br/><img src='/images/mu.gif'>"
 collection: portfolio
 ---
 
-粘稠液体<br/><img src='/images/mu.gif'>
+mu<br/><img src='/images/mu.gif'>
 
-![不太行gas](/images/mu.gif)
+reset<br/><img src='/images/reset.gif'>
 
-![jelly](portfolio-1.assets/jelly.gif)
+snow<br/><img src='/images/snow.gif'>
 
-![mu](portfolio-1.assets/mu.gif)
+weight<br/><img src='/images/weight.gif'>
 
-![pull](portfolio-1.assets/pull.gif)
+jelly<br/><img src='/images/jelly.gif'>
 
-![gas](portfolio-1.assets/gas.gif)
+gas<br/><img src='/images/gas.gif'>
 
-![reset](portfolio-1.assets/reset.gif)
+pull<br/><img src='/images/pull.gif'>
 
-![snow](portfolio-1.assets/snow.gif)
+hard<br/><img src='/images/hard.gif'>
 
-![weight](portfolio-1.assets/weight.gif)
