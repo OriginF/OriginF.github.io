@@ -1,6 +1,6 @@
 ---
 title: "Flow Gifs"
-excerpt: "Short description of portfolio item number 1<br/><img src='/_portfolio/portfolio-1.assets/%E9%87%8D%E7%BD%AE.gif'>"
+excerpt: "Short description of portfolio item number 1<br/><img src='/image/page.png'>"
 collection: portfolio
 ---
 
@@ -17,3 +17,4 @@ collection: portfolio
 ![果冻](portfolio-1.assets/%E6%9E%9C%E5%86%BB.gif)
 
 ![调节硬度](portfolio-1.assets/%E8%B0%83%E8%8A%82%E7%A1%AC%E5%BA%A6.gif)
+
