@@ -1,20 +1,12 @@
 ---
-title: "Teaching experience 1"
+title: "To be a better scientist"
 collection: teaching
-type: "Undergraduate course"
+type: "No"
 permalink: /teaching/2014-spring-teaching-1
-venue: "University 1, Department"
-date: 2014-01-01
-location: "City, Country"
+venue: "Tsinghua University, Department of Computer Science"
+date: 2022-11-23
+location: "Beijing ,China"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
+Sorry, I wiil learn hard to be a teacher
 
-Heading 1
-======
-
-Heading 2
-======
-
-Heading 3
-======
