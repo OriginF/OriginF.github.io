@@ -8,13 +8,29 @@ redirect_from:
   - /about/
   - /about.html
 ---
-- Education Background:  
-          - Bachelor of Engineering in Tsinghua University.   
-          - Currently a Ph.D student in Tsinghua University.   
-- Research Interest:  
-          - CV.   
-          - CG.   
-          - SLAM.   
-          - 3D Reconstruction.   
-          - Formal Verification.   
 
+  
+Skills
+======
+* C/C++:
+  * parallel computing
+  * openGL
+  * openCV
+  * Qt
+* Python:
+  * OpenCV
+  * Tensorflow
+* Coq
+* Java
+* Rust
+* C#
+* Javascript
+* Risc V
+* Verilog/SystemVerilog
+
+
+Research Interest
+======
+* Computer Vision and Graphics
+* Simultaneous localization and mapping
+* Formal Verification
