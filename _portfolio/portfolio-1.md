@@ -4,7 +4,9 @@ excerpt: "Some flow gifs<br/><img src='/images/mu.gif'>"
 collection: portfolio
 ---
 
-![gas](/images/mu.gif)
+粘稠液体<br/><img src='/images/mu.gif'>
+
+![不太行gas](/images/mu.gif)
 
 ![jelly](portfolio-1.assets/jelly.gif)
 
