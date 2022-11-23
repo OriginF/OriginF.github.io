@@ -1,6 +1,6 @@
 ---
 title: "Flow Gifs"
-excerpt: "Short description of portfolio item number 1<br/><img src='/image/page.png'>"
+excerpt: "Short description of portfolio item number 1<br/><img src='/images/page.png'>"
 collection: portfolio
 ---
 
