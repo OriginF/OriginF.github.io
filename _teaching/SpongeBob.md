@@ -1,7 +1,7 @@
 ---
 title: "SpongeBob"
 collection: teaching
-type: "No"
+type: "C#"
 permalink: /teaching/SpongeBob
 venue: "Tsinghua University, Department of Computer Science"
 date: 2021-4-16
