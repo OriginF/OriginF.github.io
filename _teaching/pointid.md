@@ -1,7 +1,7 @@
 ---
 title: "PointId"
 collection: teaching
-type: "No"
+type: "C++/openCV"
 permalink: /teaching/pointid
 venue: "Tsinghua University, Department of Computer Science"
 date: 2022-10-3
