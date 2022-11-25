@@ -30,7 +30,11 @@ tags:
 
   ![](2022-11-23-MotoCarlo_pathtracer.assets/ok1.png)
 
+  类似可以转化为：
+
   ![](2022-11-23-MotoCarlo_pathtracer.assets/ok2.png)
+
+  目标为计算该积分的结果。
 
 - 积分的时候可以使用蒙特卡洛积分的方法
 
