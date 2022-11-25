@@ -66,5 +66,46 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
 ### [InstantNeRF(5s)](https://originf.github.io/files/5s_NeRF.pdf)
 
 - 这篇真的nb啊
-- 所有的空间表示原语的神经网络方法，往往都是用了Encoding的方法，将低维输入映射到高维空间中去。（原文：which is key for extracting high approximation quality from compact models.）
-- 
+
+- position-encoding：
+
+  - 所有的空间表示原语的神经网络方法，往往都是用了Encoding的方法，将低维输入映射到高维空间中去。（原文：which is key for extracting high approximation quality from compact models.）
+
+  - 5D light的含义为 $x(3D)+d(2D)$，三维的空间位置$(x,y,z)$，和二维的空间方向$(\theta,\phi) \iff norm(d_x,d_y,d_z)$。每一维加密的时候都采用了独立通过poistion-encoding。
+
+  - *frequency encodings* 方法是一种类NeRF算法中的position-encoding技巧，具体的论文有*wavefronts [Tancik* et al. 2020] and level-of-detail filtering [Barron et al. 2021a].
+
+  - 往往位置编码之后会紧跟一个转移矩阵用来近似可见性函数等。*[Annen et al. 2007; Jansen and Bavoil 2010]*
+
+  - one-hot encoding:按照类别数N产生一个长为N的二进制序列，对应类别置1，其他类别置0。防止产生一些错误的信息。<u>但是可能会丢失顺序信息。</u>
+
+  - one-blob encoding:
+
+    An important consideration is the encoding of the inputs to the network. We propose to use the one-blob encoding—a generalization of the one-hot encoding—where a kernel is used to activate multiple adjacent entries instead of a single one. Assume a scalars ∈ [0, 1] and a quantization of the unit interval into k bins (we use k = 32). The one-blob encoding amounts to placing a kernel (we use a Gaussian with σ = 1/k) at s and discretizing it into the bins. With the proposed architecture of the neural network (placement of ReLUs in particular), the one-blob encoding effectively shuts down certain parts of the linear path of the network, allowing it to specialize the model on various sub-domains of the input. In contrast to one-hot encoding, where the quantization causes a loss of information if applied to continuous variables, the one-blob encoding is lossless; it captures the exact position of s
+
+    简单来说就是将连续域上划分为很多个bins，然后根据高斯核函数完成one-hot编码。
+
+    效果比frequency encoding要好得多
+
+    - 一些概念解释：
+
+      - kernel：机器学习中的kernel表示的是一个核函数：$kernel(R^n,R^n) = R^+$ 表示两个向量之间的距离。而高斯核函数表示的是
+        $$
+        k(x_1,x_2) = e^{-\frac{||x_1 - x_2||}{2\sigma^2}}
+        $$
+
+  - *Parametric encodings*：采用一些数据结构替代编码，主流是使用网格的格点进行编码，此时，在输入一个pixel的时候，只需要更新8个位置即可。同时，可以极大的加快编码的效率。
+
+  - 一个不错的解读各种编码方式的文献：[https://zhangtemplar.github.io/nerf-encoding/](https://zhangtemplar.github.io/nerf-encoding/)
+
+  - 使用了双线性插值的方法，具体的方法图如下：
+
+    ![LatendNeRF](NeRF.assets/LatendNeRF.png)
+
+    说明：分为L层，每层的分辨率不同，从小到大。每一层都找到一个该点对应的网格的位置，使用四周的四个点的双线性插值获得这个点的插值结果（F=2维），连接之后与$\xi$拼接，产生特征向量。每次梯度下降反向传播的时候:
+
+    $$MLP\rightarrow Concatenation\rightarrow Linearpolation\rightarrow lookup$$，最终修改对应的那些grid对应的feature vector（特征向量的值）。
+
+- latend feature（我的翻译是特征词）解释：To elaborate, the document could have observed features (words) like [sail-boat, schooner, yatch, steamer, cruiser] which would 'factorize' to latent feature (topic) like 'ship' and 'boat'.
+
+- *hyper-parameter* 超参数：表示在训练之前就知道的参数信息。
