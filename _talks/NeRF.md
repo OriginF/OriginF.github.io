@@ -2,9 +2,9 @@
 title: "Representing Scenes as Neural Radiance Fields for View Synthesis（NeRF）"
 collection: talks
 type: "Talk"
-permalink: /talks/2012-03-01-talk-1
+permalink: /talks/2022-11-23-talk-1
 venue: "UC Berkeley"
-date: 2022-11-25
+date: 2022-11-23
 location: "2022 CSCV"
 paperurl: 'https://originf.github.io/files/NeRF/NeRF.pdf'
 ---

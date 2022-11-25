@@ -14,7 +14,11 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
 
 ### [<u>Diffusion</u>](https://originf.github.io/files/Diffusion/Diffusion.pdf)
 
-### <u>[Diffusion on Image Synthesis](https://originf.github.io/files/Diffusion/DiffusionImage.pdf)</u>
+### [<u>Diffusion on Image Synthesis</u>](https://originf.github.io/files/Diffusion/DiffusionImage.pdf)
 
 ### **[DreamFusion](https://originf.github.io/files/Diffusion/DreamFusion.pdf)**
+
+#### 	[pytorch实现库](https://github.com/OriginF/stable-dreamfusion)
+
+- 很厉害的一篇文章，开了一个大坑。
 
