@@ -6,18 +6,18 @@ permalink: /talks/2012-03-01-talk-1
 venue: "UC Berkeley"
 date: 2022-11-25
 location: "2022 CSCV"
-paperurl: 'https://originf.github.io/files/NeRF.pdf'
+paperurl: 'https://originf.github.io/files/NeRF/NeRF.pdf'
 ---
 
 对于NeRF相关的一些论文的阅读感悟
 
 
 
-### [NeRF_Survey](https://originf.github.io/files/NeRF Survey.pdf)
+### [NeRF_Survey](https://originf.github.io/files/NeRF/NeRF Survey.pdf)
 
 - NeRF相关论文汇总。
 
-### [NeRF](https://originf.github.io/files/NeRF.pdf)
+### [NeRF](https://originf.github.io/files/NeRF/NeRF.pdf)
 
 - 方法比较粗暴，直接采用了两个8层MLP神经网络（coarse，fine）
 
@@ -39,12 +39,12 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
 
 - 输入的数据x和d均是通过了位置编码（Position Encoding）传入的，可以减少高频图像的敏感度
 
-### [LLFF](https://originf.github.io/files/LLFF.pdf)
+### [LLFF](https://originf.github.io/files/NeRF/LLFF.pdf)
 
 - 沦为NeRF的数据库了属于是
 - 数据库下载链接：[Download](https://github.com/Fyusion/LLFF)
 
-### [MVP](https://originf.github.io/files/Faster_interface.pdf)
+### [MVP](https://originf.github.io/files/NeRF/Faster_interface.pdf)
 
 - 方法真的拉
 
@@ -61,9 +61,9 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
 
 - 纯粹的叠叠乐文章，不知道为啥能中siggraph
 
-### [NSVF](https://originf.github.io/files/NSVF.pdf)
+### [NSVF](https://originf.github.io/files/NeRF/NSVF.pdf)
 
-### [InstantNeRF(5s)](https://originf.github.io/files/5s_NeRF.pdf)
+### [InstantNeRF(5s)](https://originf.github.io/files/NeRF/5s_NeRF.pdf)
 
 - 这篇真的nb啊
 
