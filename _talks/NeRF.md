@@ -4,7 +4,7 @@ collection: talks
 type: "Talk"
 permalink: /talks/2012-03-01-talk-1
 venue: "UC Berkeley"
-date: 2022-03-01
+date: 2022-11-25
 location: "2022 CSCV"
 paperurl: 'https://originf.github.io/files/NeRF.pdf'
 ---
@@ -15,7 +15,7 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
 
 ### [NeRF_Survey](https://originf.github.io/files/NeRF Survey.pdf)
 
-- 。。。
+- NeRF相关论文汇总。
 
 ### [NeRF](https://originf.github.io/files/NeRF.pdf)
 
@@ -124,4 +124,13 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
 
 - 讲故事：因为这种编码模式覆盖了分辨率较低的$N_{min}$和分辨率较高的$N_{max}$,兼顾了无冲突和高分辨率细节提取的优点。
 
-- 
+- *the intercept theorem*：The appearance of objects stays the same as long as their size and distance from the observer remain proportional. 等比观察的定理。
+
+- *ACCELERATED NERF RAY MARCHING*： NeRF 射线追踪加速。
+
+  - *exponential stepping for large scenes* ：对于较大场景增大步幅，将步幅设置为$\Delta t = \frac{\sqrt{3}}{1024}$（单位cube:$[0,1]^3$），其他的可以等比例放大。
+  - *skipping of empty space and occluded regions* ：将原始的图像划分为多个网格，每个网格设置一个occupancy（1 bit），表示对应位置是否存在占用。如果一个网格的occupancy为0，则在Ray marching过程中跳过这个网格。每16个iteration更新一次occupancy。
+    1. 每次以$\eta = 0.95$衰减每个grid中的密度值。
+    2. 随机抽取M个样本，将其值设置为当前的最大值，并且随机采样其中一个点作为其密度。
+    3. 为每一个grid设置一个阈值为$t = 0.01 \times \frac{1024}{\sqrt{3}}$, 如果小于这个阈值就将其变为0。对应了每个step的不透明度为0.01
+  - *compaction of samples into dense buffers for efficient execution.* :尽量增大训练使用的batch的size。
