@@ -108,4 +108,20 @@ paperurl: 'https://originf.github.io/files/NeRF.pdf'
 
 - latend feature（我的翻译是特征词）解释：To elaborate, the document could have observed features (words) like [sail-boat, schooner, yatch, steamer, cruiser] which would 'factorize' to latent feature (topic) like 'ship' and 'boat'.
 
-- *hyper-parameter* 超参数：表示在训练之前就知道的参数信息。
+- *hyper-parameter* 超参数：表示在训练之前就需要确定的参数信息。
+
+- 采用几何级数（等比数列）划分L份$[N_{min},N_{max}]$的方法：
+  $$
+  N_l = \lfloor N_{min} \times b^l \rfloor \\
+  b = exp(\frac{lnN_{max} - lnN_{min}}{L-1})
+  $$
+
+- 对齐方法，如果是分辨率较低，可以采用1:1加入长度为T的特征向量中。如果是分辨率大于T，可以使用一个hash function将更多的变量的数目加入到T长的特征向量中。空间hash function为：
+
+  <img src="NeRF.assets/hashfunction.png" alt="hashfunction" style="zoom:50%;" />
+
+  为对应位置的抑或结果。
+
+- 讲故事：因为这种编码模式覆盖了分辨率较低的$N_{min}$和分辨率较高的$N_{max}$,兼顾了无冲突和高分辨率细节提取的优点。
+
+- 
