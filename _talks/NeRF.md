@@ -134,3 +134,11 @@ paperurl: 'https://originf.github.io/files/NeRF/NeRF.pdf'
     2. 随机抽取M个样本，将其值设置为当前的最大值，并且随机采样其中一个点作为其密度。
     3. 为每一个grid设置一个阈值为$t = 0.01 \times \frac{1024}{\sqrt{3}}$, 如果小于这个阈值就将其变为0。对应了每个step的不透明度为0.01
   - *compaction of samples into dense buffers for efficient execution.* :尽量增大训练使用的batch的size。
+  
+- 工程优化方法(后续学习)：fully fused
+
+- 总体来说：加速的几个策略：
+
+  1. 采用了paramatric encoding，避免了sin和cos的计算（需要采用泰勒展开之类的方法），同时为可以并行的学习。
+  2. 初始设定所有位置的density为1，后续每个epoch依次衰减，完全的可以删去coarse网络。
+  3. 使用fully-fused

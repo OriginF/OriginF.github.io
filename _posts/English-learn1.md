@@ -4,3 +4,4 @@
 2. sub-linearly亚线性
 3. *backpropagation*反向传播算法
 4. *optimally*最佳的
+4. a loss derived from distillation of a 2D diffusion model一个派生于2D diffusion模型的损失函数。
