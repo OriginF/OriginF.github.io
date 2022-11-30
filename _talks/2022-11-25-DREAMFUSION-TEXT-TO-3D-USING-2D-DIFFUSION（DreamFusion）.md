@@ -22,7 +22,7 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
 
 - 满足高斯分布的两个随机变量$p \sim N(\mu_1,\sigma_1^2)$和$q \sim N(\mu_2,\sigma_2^2)$，有如下KL散度表达式：
   $$
-  D_{KL}(p,q) = log(\frac{\sigma_2}{\sigma_1}) + \frac{\sigma_1^2 + (\mu_1 - \mu_2)^2}{2\sigma_2^2} - \frac{1}{2}
+  D_{KL}(p,q) = log(\frac{\sigma_2}{\sigma_1}) + \frac{\sigma_1^2 + (\mu_1 - \mu_2)^2}{2\sigma_2^2} - \frac{1}{2} \tag{KL}
   $$
 
 - 重参数技巧：
@@ -59,9 +59,9 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
 
 - 后验概率q：
   $$
-  q(x_{t-1}|x_{t},x_0)=N(x_{t-1}: :\bar{\mu}_t(x_t,x_0),\bar{\beta}_t) \\
-  \bar{\mu}_t = \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}x_t + \frac{\sqrt{\alpha_{t-1}}\beta_t}{1-\bar{\alpha}_t}x_0 \\
-  \bar{\beta}_t = \frac{1-\bar{\alpha}_{t-1}}{1-\bar{\alpha}_t}x_0
+  q(x_{t-1}|x_{t},x_0)=N(x_{t-1}: :\widetilde{\mu}_t(x_t,x_0),\widetilde{\beta}_t) \\
+  \widetilde{\mu}_t = \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})}{1-\bar{\alpha}_t}x_t + \frac{\sqrt{\alpha_{t-1}}\beta_t}{1-\bar{\alpha}_t}x_0 \tag{M0}\\
+  \widetilde{\beta}_t = \frac{1-\bar{\alpha}_{t-1}}{1-\bar{\alpha}_t}x_0
   $$
   从而直接拿到对应的公式，不用在进行一些复杂的先验后验计算。
 
@@ -72,12 +72,12 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
 
   - 带入上式：
     $$
-    \bar{\mu}_t = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{\beta_t}{\sqrt{1-\bar{\alpha}_t}}\times z_t)
+    \widetilde{\mu}_t = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{\beta_t}{\sqrt{1-\bar{\alpha}_t}}\times z_t) \tag{M1}\\ 
     $$
 
   - 从而得到:
     $$
-    q(x_{t-1}|x_t)=N(x_{t-1}:\bar{\mu}_t(x_t),\bar{\beta}_t)
+    q(x_{t-1}|x_t)=N(x_{t-1}:\widetilde{\mu}_t(x_t),\widetilde{\beta}_t)
     $$
 
 - Loss:
@@ -89,11 +89,18 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
   而$L_{VLB}$可以化简为：
   $$
   \begin{align}
-  L_{VLB} =&\underbrace{E_q[D_{KL}(q(x_T|x_0)||p_{\theta}(x_T))]}_{L_T}+ \\ &\underbrace{E_q[\sum_{\tau=2}^TD_{KL}(q(x_{t-1}|x_t,x_0)||p_{\theta}(x_{t-1}|x_t))]}_{L_{t-1}}+\\ &\underbrace{E_q[-log~p_{\theta}(x_0|x_1)]}_{L_0}
+  L_{VLB} =&\underbrace{E_q[D_{KL}(q(x_T|x_0)||p_{\theta}(x_T))]}_{L_T}+ \tag{L1}\\ &\underbrace{E_q[\sum_{\tau=2}^TD_{KL}(q(x_{t-1}|x_t,x_0)||p_{\theta}(x_{t-1}|x_t))]}_{L_{t-1}}+ \tag{L2}\\ &\underbrace{E_q[-log~p_{\theta}(x_0|x_1)]}_{L_0} \tag{L3}
   \end{align}
   $$
 
-- 
+- 首先是$L_{t-1}$，L2带入(KL)并将常数部分记为C
+  $$
+  \begin{align}
+  L_{t-1} &= E_q[\frac{1}{2\sigma_t^2}||\widetilde\mu_t(x_t,x_0),\mu_{\theta(x_t,t)}||^2] + C \rightarrow \\
+  L_{t-1} &= E_{x0,\epsilon}[\frac{1}{2\sigma_t^2}||||^2] + C
+  \end{align}
+  $$
+  
 
 ### [<u>Diffusion on Image Synthesis</u>](https://originf.github.io/files/Diffusion/DiffusionImage.pdf)
 
@@ -109,3 +116,4 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
   $$
   D_{KL} = -\sum_i P(i) ln \frac{Q(i)}{P(i)}
   $$
+
