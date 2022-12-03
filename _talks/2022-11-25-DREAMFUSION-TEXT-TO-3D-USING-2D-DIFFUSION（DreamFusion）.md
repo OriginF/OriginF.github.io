@@ -96,11 +96,42 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
 - 首先是$L_{t-1}$，L2带入(KL)并将常数部分记为C
   $$
   \begin{align}
-  L_{t-1} &= E_q[\frac{1}{2\sigma_t^2}||\widetilde\mu_t(x_t,x_0),\mu_{\theta(x_t,t)}||^2] + C \rightarrow \\
-  L_{t-1} &= E_{x0,\epsilon}[\frac{1}{2\sigma_t^2}||||^2] + C
+  &L_{t-1}= E_q[\frac{1}{2\sigma_t^2}||\widetilde\mu_t(x_t,x_0),\mu_{\theta(x_t,t)}||^2] + C \\
+  \rightarrow~~~~&... \\
+  \rightarrow~~~~&L_{simple}(\theta) = E_{t,x_0,\epsilon}[||\epsilon - \epsilon_{\theta}(\sqrt{\bar\alpha_t \times \epsilon, t})||^2]
   \end{align}
   $$
-  
+
+- 代码过程：
+
+  - 根据上述公式有如下训练过程Training:
+
+  $$
+  \begin{align}
+  &1: repeat \\
+  &2: x_0 \sim q(x_0) ~~~从输入的样本（训练集）空间中采样出一个x_0 \\
+  &3: t \sim Uniform({1,...,T}) ~~~从T中随机插值出t个数据 \\
+  &4: \epsilon \sim N(0,1) ~~~从正态分布中采样出一个随机值（产生随机性）\\
+  &5: Take~gradient~descent~step~as: \\
+  &~~~~~~~~~~~~~~~~\Delta_{\theta}||\epsilon - \epsilon_{\theta}(\sqrt{\bar\alpha_t}\times x_0+\sqrt{1-\bar\alpha_t}\times \epsilon,t)||^2  ~~~\epsilon_{\theta}为一个训练出的网络\\ 
+  &6:until~converged
+  \end{align}
+  $$
+
+  - 反向过程（采样过程）Sampling:
+
+  $$
+  \begin{align}
+  &1:x_T \sim N((0,I) ~~~~从高斯分布中采样出一个点 \\
+  &2:for~T,...,1~do 	~~~~从T到1依次迭代 \\
+  &3:	~~~~z \sim N(0,I) ~if~t > 1, else~z = 0 ~~~~从正态分布中拿到一个z\\
+  &4: ~~~~x_{t-1} = \frac{1}{\sqrt{\alpha_t}}(x_t - \frac{1-\alpha_t}{\sqrt{1-\bar\alpha_t}}\times \epsilon_{\theta}(x_t,t)) + \sigma_t\times z \\
+  &5:end~for\\
+  &6:return~x_0
+  \end{align}
+  $$
+
+- 牛逼啊，一些优化主要是针对Sampling过程，减少采样计算的。
 
 ### [<u>Diffusion on Image Synthesis</u>](https://originf.github.io/files/Diffusion/DiffusionImage.pdf)
 
