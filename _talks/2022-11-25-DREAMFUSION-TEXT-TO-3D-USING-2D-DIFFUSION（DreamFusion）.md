@@ -27,7 +27,7 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
 
 - 重参数技巧：
 
-  为了在$N(\mu,sigma^2)$中采样x，先取$z \sim N(0,1)$，那么有$x = \sigma \times z + \mu$，可以对z进行采样，然后返回时对$\sigma$和$\mu$进行梯度传播。（此时z表示一个常量）。为了保证可导，先抽样，在进行变化即可。
+  为了在$N(\mu,\sigma^2)$中采样x，先取$z \sim N(0,1)$，那么有$x = \sigma \times z + \mu$，可以对z进行采样，然后返回时对$\sigma$和$\mu$进行梯度传播。（此时z表示一个常量）。为了保证可导，先抽样，在进行变化即可。
 
 - 两个过程：
 
@@ -102,6 +102,8 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
   \end{align}
   $$
 
+- 所以训练过程就相当于优化一个网络$\epsilon_{\theta}$
+
 - 代码过程：
 
   - 根据上述公式有如下训练过程Training:
@@ -147,4 +149,30 @@ paperurl: 'https://originf.github.io/files/Diffusion/DreamFusion.pdf'
   $$
   D_{KL} = -\sum_i P(i) ln \frac{Q(i)}{P(i)}
   $$
+
+- 基于Diffusion的一个后续优化（*Ho et al., 2020; Kingma et al., 2021*）
+  $$
+  L_{Diff}(\phi,x) = E_{t \sim U(0,1),\epsilon \sim N(0,I)}[w(t)||\epsilon_{\phi}(\alpha_t x+\sigma_t\epsilon;t)-\epsilon||^2]
+  $$
+  等于是为每个t添加一个新的权重。
+
+- 向$\epsilon_{\theta}$中添加参数y，表示一段话，从而产生text-to-image的效果。
+
+- “frozen”的含义为：首先存在一个浅层的数据（预训练模型，可能已经使用A数据集训练好了），然后再训练（使用新的C数据集进行训练）的时候不再改变这些浅层的数据。这种方法称为frozen。
+
+- 产生一个新的损失函数：
+  $$
+  \nabla_{\theta}L_{SDS}(\phi,x=g(\theta)) = \nabla_{\theta}E_t[\frac{\sigma_t}{\alpha_t}\omega(t)KL(q(z_t|g(\theta);y,t)||p_{\phi}(z_t;y,t))]
+  $$
+  ​		其中$\nabla_{\theta}$表示对$\theta$求偏导。$\theta$表示的是可微生成器g的参数，x为生成的图像。
+
+- 本文不需要训练diffusion，仅仅是将其当作frozen使用。
+
+- 采用分数函数替代了密度函数，用来绘制图像。
+
+- 保留了Diffusion的过程，Diffusion每次根据对应的一句文本产生一个图像，然后对图像进行NeRF的一个L最小化迭代，最终使得整个结果的图像趋向于稳定即可。
+
+![DreamF](2022-11-25-DREAMFUSION-TEXT-TO-3D-USING-2D-DIFFUSION%EF%BC%88DreamFusion%EF%BC%89.assets/DreamF.png)
+
+可以看到，这里的这个loss：g就符合上述的说法了。
 
